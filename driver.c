@@ -153,13 +153,61 @@ int main() {
     table[i] = NULL;
   }
 
+  
+  printf("\n**************** Testing print_library... ****************\n");
+
   printf("Library:\n");
   print_library(table);
   
-  printf("\n**************** Testing add_song... ****************\n");
+  // printf("\n**************** Testing add_song... ****************\n");
 
-  printf("...Adding songs to music library...");
-  add_song(table, "Song A", "Apple");
+  // printf("...Adding songs to music library...");
+  // add_song(table, "Song A", "Apple");
+  // print_library(table);
+
+  
+  printf("\n**************** Testing find_song_library... ****************\n");
+
+  printf("...Finding song0 by Apple...\n");
+  printf("I found \t%s!\n", find_song_library(table, "song0", "Apple")->name);
+    
+
+  printf("\n**************** Testing find_artist... ****************\n");
+
+  printf("...Finding first song by Apple...\n");
+  printf("I found \t%s!\n", find_artist(table, "Apple")->name);
+
+  
+  printf("\n**************** Testing print_all_by_letter... ****************\n");
+
+  printf("...Print all songs whose artist name begins with A...\n");
+  print_all_by_letter(table, "A");
+
+  
+  printf("\n**************** Testing print_all_by_artist... ****************\n");
+
+  printf("...Print all songs whose artist name is Apple...\n");
+  print_all_by_artist(table, "Apple");
+
+  
+  printf("\n**************** Testing shuffle... ****************\n");
+
+  printf("...Generating shuffled playlist...\n");
+  shuffle(table);
+
+
+  printf("\n**************** Testing delete_song... ****************\n");
+
+  printf("...Deleting song0 by Apple...\n");
+  printf("Songs w/ artist = Apple: \t");
+  delete_song(table, "song0", "Apple");
+  print_all_by_artist(table, "Apple");  
+
+
+  printf("\n**************** Testing clear_library... ****************\n");
+
+  clear_library(table);
+  printf("Library:\n");
   print_library(table);
   
   return 0;

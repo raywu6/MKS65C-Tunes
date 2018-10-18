@@ -22,4 +22,4 @@ void shuffle (struct song_node * table[27]);
 
 struct song_node * delete_song (struct song_node * table[27] , char * , char *);
 
-struct song_node * clear_library (struct song_node * table[27]);
+void clear_library (struct song_node * table[27]);

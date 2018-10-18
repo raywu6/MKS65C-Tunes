@@ -56,6 +56,8 @@ struct song_node * insert_abc (struct song_node *node_pointer , char *newName, c
     
   } // end while
 
+  // reach here if adding the alphabetically last in list
+  
   follower->next = newNode;
   return retNode;
 }
@@ -128,6 +130,10 @@ struct song_node * random_song (struct song_node *node_pointer) {
 
   // reset retNode to beginning of list
   retNode = node_pointer;
+
+  if (length == 0)
+    // don't try to do modulo 0
+    return retNode;
 
   // use mod to make random # w/in bounds of indices...
   randomIndex = randomIndex % length;
