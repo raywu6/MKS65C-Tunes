@@ -78,11 +78,13 @@ void shuffle (struct song_node * table[27]) {
   randNumOfSongs = (int) randNumOfSongs % 10; // let's not get too crazy here...
 
   int count;
-  for (count=0 ; count<randNumOfSongs ; count++) {
+  for (count=0 ; count<randNumOfSongs ;) {
     int arrayIndex = rand() % 27;
     struct song_node *randomSelection = random_song(table[arrayIndex]);
-    if (randomSelection)
+    if (randomSelection) {
       printf("[%s, %s],", randomSelection->name, randomSelection->artist);
+      count++;  // only increment count when random song found ...
+    }           // ( what if randomly select from empty list? )
   }
 
   printf("]\n");

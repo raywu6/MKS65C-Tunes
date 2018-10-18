@@ -11,4 +11,4 @@ test.o: driver.c llist.h musiclib.h
 	gcc -c -g driver.c
 
 clean:
-	rm *~ *.gch* a.out *.o *#*
+	rm *~ *.gch* a.out *.o *#* ; rm -r *.dSYM
