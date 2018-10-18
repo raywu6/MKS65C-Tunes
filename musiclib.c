@@ -9,14 +9,15 @@
 // R 2018-10-18
 
 int get_letter_index (char * artist) {
-  if ( strcmp(&artist[0] , "A") >= 0 &&
-       strcmp(&artist[0] , "Z") <= 0    ) {
-    return (int) artist[0] - 65;
+
+  if ( strncmp(artist , "A", 1) >= 0 &&
+       strncmp(artist , "Z", 1) <= 0    ) {
+    return (int) *artist - 65;
   }
   
-  else if ( strcmp(&artist[0] , "a") >= 0 &&
-	    strcmp(&artist[0] , "z") <= 0    ) {
-    return (int) artist[0] - 97;
+  else if ( strncmp(artist , "a", 1) >= 0 &&
+	    strncmp(artist , "z", 1) <= 0    ) {
+    return (int) *artist - 97;
   }
   
   else
@@ -97,7 +98,7 @@ struct song_node * delete_song (struct song_node * table[27], char *specName, ch
 void clear_library (struct song_node * table[27]) {
   int i;
   for (i=0 ; i<27 ; i++) {
-    free_list( table[i] );
+    table[i] = NULL;
   }
 
 }

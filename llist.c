@@ -24,6 +24,9 @@ struct song_node * insert_front (struct song_node *node_pointer , char *newName 
 struct song_node * insert_abc (struct song_node *node_pointer , char *newName, char *newArtist) {
   struct song_node *retNode = node_pointer;
 
+  if ( node_pointer == NULL )
+    return insert_front (node_pointer , newName , newArtist);
+    
   // create node
   struct song_node *newNode = malloc( sizeof(struct song_node) );
   strcpy(newNode->name, newName);
@@ -138,8 +141,6 @@ struct song_node * random_song (struct song_node *node_pointer) {
   // use mod to make random # w/in bounds of indices...
   randomIndex = randomIndex % length;
 
-  printf("randomIndex: \t%d\n", randomIndex);
-  
   // move to reach random index
   int i;
   for (i=0 ; i<randomIndex ; i++) {

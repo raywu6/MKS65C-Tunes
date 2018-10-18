@@ -137,12 +137,12 @@ int main() {
   printf("...Freeing mySongNode0...\n");
   printf("mySongNode0:\t");
   mySongNode0 = free_list(mySongNode0);
-  print_list( mySongNode0 );  // []
+  print_list( mySongNode0 );
 
   printf("...Freeing mySongNode1...\n");
   printf("mySongNode1:\t");
   mySongNode1 = free_list(mySongNode1);
-  print_list( mySongNode1 );  // []
+  print_list( mySongNode1 );
 
   
   printf("\n====================\n MUSIC LIBRARY TESTS\n====================\n");
@@ -159,13 +159,21 @@ int main() {
   printf("Library:\n");
   print_library(table);
   
-  // printf("\n**************** Testing add_song... ****************\n");
+  printf("\n**************** Testing add_song... ****************\n");
 
-  // printf("...Adding songs to music library...");
-  // add_song(table, "Song A", "Apple");
-  // print_library(table);
+  printf("...Adding songs to music library...\n");
+  add_song(table, "song0", "Apple");
+  add_song(table, "song3", "Apple");
+  add_song(table, "song2", "Apple");
+  add_song(table, "song1", "Apple");
+  add_song(table, "song0", "Applet");
+  add_song(table, "song1", "Applet");
+  add_song(table, "song0", "banana");
+  add_song(table, "song1", "Banana");
+  add_song(table, "song0", "Zebra");
+  add_song(table, "song0", "!Exclamation!");
+  print_library(table);
 
-  
   printf("\n**************** Testing find_song_library... ****************\n");
 
   printf("...Finding song0 by Apple...\n");
@@ -195,7 +203,7 @@ int main() {
   printf("...Generating shuffled playlist...\n");
   shuffle(table);
 
-
+  
   printf("\n**************** Testing delete_song... ****************\n");
 
   printf("...Deleting song0 by Apple...\n");
